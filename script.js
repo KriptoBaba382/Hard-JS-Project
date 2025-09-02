@@ -7,24 +7,19 @@ const screens = prompt(
 );
 console.log(screens);
 const screenPrice = prompt("Сколько будет стоить данная работа? пример:1200");
-console.log(screenPrice);
+
 const adaptive = confirm("Нужен ли адаптив на сайте?");
-if (adaptive) {
-  console.log("Item deleted.");
-} else {
-  console.log("Deletion cancelled.");
-}
-console.log(adaptive);
+
 const service1 = prompt("Какой дополнительный тип услуги нужен?");
 const servicePrice1 = prompt("Сколько это будет стоить?");
 const service2 = prompt("Какой дополнительный тип услуги нужен?");
 const servicePrice2 = prompt("Сколько это будет стоить?");
 const fullPrice = screenPrice + servicePrice1 + servicePrice2;
-console.log(fullPrice);
+
 const rollback = 15;
-const servicePercentPrice = fullPrice - rollback;
-console.log(servicePercentPrice);
-console.log(Math.ceil(servicePercentPrice));
+// const servicePercentPrice = fullPrice - fullPrice * (rollback / 100);
+// console.log(servicePercentPrice);
+// console.log(Math.ceil(servicePercentPrice));
 if ((fullPrice) => 30000) {
   console.log("Даем скидку в 10%");
 }
@@ -37,3 +32,22 @@ if (fullPrice < 1500 && fullPrice > 0) {
 if (fullPrice <= 0) {
   console.log("Что-то пошло не так");
 }
+function getAllServicePrices(priceOne, priceTwo) {
+  return priceOne + priceTwo;
+}
+
+const allServicePrices = getAllServicePrices(servicePrice1, servicePrice2);
+
+const getFullPrice = function () {
+  return screenPrice + allServicePrices;
+};
+
+function getTitle() {
+  return title.charAt(0).toUpperCase() + title.slice(1);
+}
+
+function getServicePercentPrices(fullPrice, rollback) {
+  return fullPrice - fullPrice * (rollback / 100);
+}
+
+const servicePercentPrice = getServicePercentPrices(fullPrice, rollback);
